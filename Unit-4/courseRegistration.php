@@ -1,16 +1,23 @@
 <?php
-    //collection of web page data
+    //Collection of web page data
+    $stCourse = null;
     $stName = $_POST["txtname"];
-     $stusn = $_POST["ddl_usn"];
-      $stDiv = $_POST["rddivision"];
-       $stCourse = $_POST["chkcourse"];
-        $regDate =  $_POST["dtregistration"];
+    $stUSN = $_POST["ddl_usn"];
+    $stDiv = $_POST["rddivision"];
+    if(isset($_POST["chkcourses"]))
+        $stCourse = $_POST["chkcourses"];
+    
+    $regDate = $_POST["dtregistration"];
 
-    if(isset($_POST["btnsubmit"])){
-        echo "<table><tr><th>Name</th><th>usn</th><th>Divisin</th><th>Course</th>
-        <tr><td>$stName</td><td>$stusn</td><td>$stDiv</td><td>$stCourse</td><td>$regDate</td>"
+    foreach ($stCourse as $course) {
+        $courseVal .= $course ."</br>";
     }
-    else{
-        echo "Please enter missing values!!";
+
+    if(isset($_POST["btnsubmit"])) {
+        echo "<table border=\"1\"><tr><th>Name</th><th>USN</th><th>Division</th><th>Courses</th><th>Date</th></tr>
+        <tr><td>$stName</td><td>$stUSN</td><td>$stDiv</td><td>$courseVal</td><td>$regDate</td></tr></table>";
+    }
+    else {
+        echo "Please enter missing values!!!!";
     }
 ?>
