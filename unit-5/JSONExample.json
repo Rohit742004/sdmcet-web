@@ -1,0 +1,51 @@
+<?php
+$jobj = '{
+    "college":"sdm";
+    "code":"2sd";
+    "place":"Dharwad";
+}';
+$jobj1 = json_decode($jobj);
+var_dump($jobj1);
+echo "<br/>";
+echo "<hr/>";
+echo "<br/>";
+//example to php associative array object
+$ass_obj = array('name' => 'sanjay', 'age' => '21', 'city' => 'dharwad');
+$jsobj = json_encode($ass_obj);
+echo $jsobj;
+
+//multidimensional array
+
+$multiarray = array(
+    'person' => array(
+        'name' => 'sanjay',
+        'age' => '21',
+        'address' => array(
+            'city' => 'dharwad',
+            'state' => 'karnataka',
+        ),
+        'company' => array(
+            'name' => 'xyz',
+        )
+    )
+);
+$jsobject = json_encode($multiarray);
+echo "<hr/>";
+echo "<br/>";
+$jsondata = json_decode($jsobject);
+var_dump($jsobject);
+echo "<br/>";
+echo "<hr/>";
+
+//modifying values 
+$jsonuserdata = array(
+    "name" => "sanjay",
+    "age" => 21,
+    "city" => "dharwad"
+);
+
+$jsonuserdata['age'] += 1;
+$jsonuserdatamodify = json_encode($jsonuserdata);
+var_dump($jsonuserdatamodify);
+echo "<br/>";
+echo "<hr/>";
